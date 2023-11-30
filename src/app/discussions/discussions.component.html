@@ -1,0 +1,12 @@
+<table class="table table-dark table-striped">  <thead>
+  <tr>
+    <th scope="col">User1</th>
+    <th scope="col">User2</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let conversation of conversationList">
+    <app-discussion [ [conversations]="conversation"></app-discussion>
+  </ng-container>
+  </tbody>
+</table>

@@ -1,0 +1,46 @@
+
+<div class="mb-3" style="margin-right: 50px ; margin-left: 30px">
+  <label for="exampleFormControlInput1" class="form-label">User1</label>
+  <input type="email"  class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" [(ngModel)]="email1" (change)="handleEmail1Change($event)">
+  <br>
+  <label for="exampleFormControlInput1" class="form-label">User2</label>
+  <input type="email"  class="form-control" id="exampleFormControlInput2" placeholder="name@example.com" [(ngModel)]="email2" (change)="handleEmail2Change($event)">
+</div>
+<div class="mb-3" style="margin-right: 50px ; margin-left: 30px">
+  <label for="exampleFormControlTextarea1" class="form-label" >Write your message :</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="text" (change)="handleInputChange($event)"></textarea>
+</div>
+<div class="col-auto" style="margin-left: 50px ">
+  <button type="submit" class="btn btn-primary mb-3" (click)="SendingMessage()" >Send</button>
+</div>
+
+<br>
+<!--
+put the user1 email
+-->
+<label for="exampleFormControlTextarea1" class="form-label" style="margin-right: 50px ; margin-left: 30px">search for conversatins</label>
+<br>
+<section>
+  <div style="margin-right: 50px ; margin-left: 30px">
+    <input type="text" class="form-control" [(ngModel)]="user1" (keyup)="handleUser1Change($event)" placeholder="user1 name  ">
+  </div>
+</section>
+
+<!--
+put the user2 email
+-->
+<br>
+<section>
+  <div style="margin-right: 50px ; margin-left: 30px">
+    <input type="text" class="form-control" [(ngModel)]="user2" (keyup)="handleUser2Change($event)" placeholder="user2 name ">
+  </div>
+</section>
+<br>
+
+<section class="results" style="margin-right: 50px ; margin-left: 30px">
+
+  <ng-container *ngFor="let conversation of filteredConversationList">
+    <app-conversations [conversations]="conversation"></app-conversations>
+  </ng-container>
+</section>
+
